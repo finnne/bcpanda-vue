@@ -44,6 +44,7 @@
 <script>
   import { Http } from '@/class/http.js';
   import { Pager } from '@/class/entity.js';
+  // import { Helper } from '@/class/helper.js';
   import { Common } from '@/class/common.js';
 
   const pager = new Pager();
@@ -59,10 +60,11 @@
 
     mounted (){
       this.loadPage();
+      console.log(iView)
     },
 
     methods: {
-      loadPage : function(callback){
+      loadPage: function(callback){
         Http.request({
           // url: app.Config.domain+ '/panda/list',
           url: '/static/data/list.json',
@@ -76,20 +78,13 @@
                 panda.degree = Common.foo.getDegreeTextByNum(panda.degree);
               }
               pager.set(pandas, 4);
-              // this.setData({
-              //   pandaList: this.pager.next(),
-              // });
               this.pandaList = pager.next();
               // this.pullBottomFlag = true;
             }
             else {
-              // app.Toast.show('request is error');
-              alert('request is error');
+              this.$Message.error(dic.msg);
             }
             callback && callback();
-          },
-          error: (err)=>{
-            console.log('err', err);
           }
         });
         
@@ -102,6 +97,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" type="text/css" scoped>
+
   .sec_banner{
     &{
       height: 17rem;
@@ -237,4 +233,5 @@
       }
     }
   }
+
 </style>

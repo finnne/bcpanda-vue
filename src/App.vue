@@ -21,6 +21,15 @@ export default {
 	input::-webkit-outer-spin-button,
 	input::-webkit-inner-spin-button {-webkit-appearance: none !important;  margin: 0; }
 
+
+// ======================= iview style =================
+	.demo-spin-icon-load{
+        animation: ani-demo-spin 1s linear infinite;
+    }
+    .ivu-spin-fix{
+    	background-color: rgba(0, 0, 0, 0.7);
+    }
+
 // ======================= public style =================
 
 	body {
