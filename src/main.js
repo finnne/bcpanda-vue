@@ -2,11 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import App from './App';
+import TagHeader from '@/components/TagHeader';
 import router from './router';
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
+// import '@/assets/css/base.scss';
 
 Vue.use(iView);
+
+Vue.component(TagHeader.name, TagHeader);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

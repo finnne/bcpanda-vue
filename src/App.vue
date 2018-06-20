@@ -30,6 +30,7 @@ export default {
     	background-color: rgba(0, 0, 0, 0.7);
     }
 
+
 // ======================= public style =================
 
 	body {
@@ -138,4 +139,6 @@ export default {
 	.colgray{
 	  color: #999999 !important;
 	}
+
+	
 </style>

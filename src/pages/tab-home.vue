@@ -1,5 +1,10 @@
 <template>
   <div>
+    <TagHeader>
+      区块链熊猫
+      <!-- <span slot="right">登录</span> -->
+    </TagHeader>
+
     <div class="sec_banner clearfix">
       <p class="beta_text">区块链熊猫beta版</p>
       <img class="img_panda" src="../assets/imgs/banner_panda.png"/>
@@ -14,28 +19,8 @@
         <a @click="navToExplain()">什么是区块链熊猫？</a>
       </div>
 
-      <ul class="list clearfix" v-if="pandaList.length>0">
-        <li v-for="panda of pandaList" @click="showPandaDetail(panda.pandaId)">
-          <div class="img_con" :style="'background-color:#'+ panda.backColor">
-            <span class="flex-center"><img :src="panda.url"></span>
-          </div>
-          <i>{{panda.degree}}</i>
-          <h6>{{panda.name}}</h6>
-          <p>
-            第{{panda.generation}}代<small> |</small>
-            <span class="price" v-if="panda.state==2">{{panda.price}}竹子</span>
-            <span v-if="panda.state!=2">暂未定价</span>
-          </p>
-        </li>
-      </ul>
+      <TagPandaList v-bind:listData="pandaList" v-bind:pandaClick="showPandaDetail"></TagPandaList>
 
-      <ul class="list clearfix" v-if="pandaList.length==0">
-        <li v-for="i of 4">
-          <div class="img_con">
-            <span></span>
-          </div>
-        </li>
-      </ul>
     </div>
 
   </div>
@@ -47,11 +32,13 @@
   // import { Helper } from '@/class/helper.js';
   import { Common } from '@/class/common.js';
 
+  import TagPandaList from '@/components/TagPandaList.vue';
+
   const pager = new Pager();
 
   export default {
     name: 'TabHome',
-
+    components: { TagPandaList },
     data () {
       return {
         pandaList: []
@@ -60,7 +47,6 @@
 
     mounted (){
       this.loadPage();
-      console.log(iView)
     },
 
     methods: {
@@ -87,8 +73,11 @@
             callback && callback();
           }
         });
-        
+      },
+      showPandaDetail: function(id){
+        console.log('id',id);
       }
+
     },
 
 
@@ -167,71 +156,7 @@
         float: right;
       }
     }
-    .list{
-      &{
-        width: 94%;
-        margin: 0 auto;
-      }
-      li{
-        width: 48%;
-        float: left;
-        border-radius: 3px;
-        margin-bottom: 15px;
-        position: relative;
-        overflow: hidden;
-      }
-      li:nth-child(2n){
-        margin-left: 4%;
-      }
-      li > .img_con{
-        width: 100%;
-        padding-top: 100%; 
-        position: relative;
-        background-color: #dddddd;
-      }
-      li > .img_con > span{
-        display: block;
-        width:100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
-      li > .img_con > span > img{
-        height: 90%;
-      }
-      li > h6{
-        font-size: 1.6rem;
-        font-weight: normal;
-        color: #333333;
-        padding: 8px 0 4px 0;
-      }
-      li > p{
-        display: block;
-        margin-bottom: 6px;
-        font-size: 1.3rem;
-        color: #999999;
-      }
-      li small{
-        font-size: 13px;
-        font-weight: lighter;
-        margin: 0 4px;
-      }
-      li .price{
-        color: #ff5060;
-      }
-      li > i{
-        font-size: 1.2rem;
-        color: #ffffff;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-style: normal;
-        padding: 6px 6px 10px 6px;
-        background: url('../assets/imgs/tag_bg.png') no-repeat center center;
-        background-size: 100% 100%;
-      }
-    }
+    
   }
 
 </style>

@@ -16,7 +16,7 @@ export const Http = {
     };
     
     // if (app.Config.debug) {
-    //   console.log(param.method||'GET', param.url, param.data);
+    //   console.info(param.method||'GET', param.url, param.data);
     // }
     Axios({ 
       method: param.method, 
@@ -24,9 +24,9 @@ export const Http = {
       data: param.data, 
       headers: param.header 
     }).then((res)=> { 
-      console.log('success: ', res);
+      console.info('success: ', res);
       // if (app.Config.debug) {
-      //   console.log('result', res);
+      //   console.info('result', res);
       // }
       // if (res.status==200){
         // if (!app.Global.sessionid) {
@@ -42,11 +42,11 @@ export const Http = {
       //   //   title: 'error: ' + res.status,
       //   //   icon: 'none'
       //   // });
-      //   console.log('error: ', res.status);
+      //   console.info('error: ', res.status);
       // }
     }).catch((err)=>{
       // if (app.Config.debug) {
-      //   console.log('error', err);
+      //   console.error('error', err);
       // }
       if (typeof param.error == 'function') {
         param.error(err);
@@ -55,7 +55,7 @@ export const Http = {
         //   title: 'error: '+ err.errMsg,
         //   icon: 'none'
         // });
-        console.log('catch error: ', err);
+        console.error('catch error: ', err);
       }
     });
 
@@ -70,7 +70,7 @@ const loginStateHandler = (dic) => {
     // wx.navigateTo({
     //   url: '/pages/sign-in/sign-in',
     // })
-    console.log('is exit!!!')
+    console.info('is exit!!!')
     return false;
   }
   else{
