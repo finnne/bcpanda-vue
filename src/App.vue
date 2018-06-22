@@ -1,11 +1,34 @@
 <template>
-    <router-view/>
+	<transition :name="transitionName">	
+		<keep-alive :include="keepView">	
+			<router-view></router-view>
+		</keep-alive>
+    </transition>
 </template>
 
 <script>
 
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+      return {
+          transitionName:'',
+          keepView: ['TabHome'],
+      }
+  },
+
+
+  watch: {//使用watch 监听$router的变化
+    $route(to, from) {  	
+      //如果to索引大于from索引,判断为前进状态,反之则为后退状态
+      if(to.meta.index > from.meta.index){
+        //设置动画名称
+        this.transitionName = 'slide-left';
+      }else{
+        this.transitionName = 'slide-right';
+      }
+    }
+  }
 }
 
 </script>
@@ -21,22 +44,102 @@ export default {
 	input::-webkit-outer-spin-button,
 	input::-webkit-inner-spin-button {-webkit-appearance: none !important;  margin: 0; }
 
+//======================== scss define style=========================
 
-// ======================= iview style =================
-	.demo-spin-icon-load{
-        animation: ani-demo-spin 1s linear infinite;
-    }
-    .ivu-spin-fix{
-    	background-color: rgba(0, 0, 0, 0.7);
-    }
 
+	$lightBlue: #5eb3fd;
+
+
+// ======================= override style =================
+
+	.slide-right-enter-active,
+	.slide-right-leave-active,
+	.slide-left-enter-active,
+	.slide-left-leave-active {
+	  will-change: transform;
+	  transition: all 200ms;
+	  position: absolute;
+	}
+	.slide-right-enter {
+	  transform: translate3d(-100%, 0, 0);
+	}
+	.slide-right-leave-active {
+	  transform: translate3d(100%, 0, 0);
+	}
+	.slide-left-enter {
+	  transform: translate3d(100%, 0, 0);
+	}
+	.slide-left-leave-active {
+	  transform: translate3d(-100%, 0, 0);
+	}
+
+// ======================= vux override style =================
+	 
+
+	body .vux-header{
+		width: 100%; 
+		height: 40px;
+		position: absolute; 
+		left: 0px; 
+		top: 0px; 
+		z-index: 100;
+		background-color: #f8f8f8;
+		padding: 0;
+		border-bottom: 1px solid #e4e4e4;
+
+		.vux-header-title{
+			font-size: 16px;
+			color: #666666;
+		}
+		.vux-header-left{
+			height: 20px;
+			top: 0;
+			bottom:0;
+			margin: auto;
+		}
+		.vux-header-left > a,
+		.vux-header-right{
+			color: $lightBlue;
+		}
+		.vux-header-left .left-arrow:before{
+			border-color: $lightBlue;
+		}
+	}
 
 // ======================= public style =================
-
+	.colred{
+	  color: #ff5060 !important;
+	}
+	.colblue{
+	  color: #5eb3fd !important;
+	}
+	.colgray{
+	  color: #999999 !important;
+	}
+	html,body{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
 	body {
 	  background-color: #f8f8f8;
 	  font-size: "Helvetica Neue",Roboto,sans-serif;
 	  color: #666666; 
+	}
+	.viewport{
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		& > header{
+			width: 100%;
+			height: 40px;
+		}
+		& > section{
+			flex-grow: 1;
+			overflow: auto;
+			&::-webkit-scrollbar {display:none}
+		}
 	}
 	.full{
 	  width: 100%;
@@ -130,15 +233,7 @@ export default {
 	  background-color: #e4e4e4;
 	}
 
-	.colred{
-	  color: #ff5060 !important;
-	}
-	.colblue{
-	  color: #5eb3fd !important;
-	}
-	.colgray{
-	  color: #999999 !important;
-	}
+	
 
 	
 </style>

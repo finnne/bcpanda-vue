@@ -24,7 +24,7 @@ export const Http = {
       data: param.data, 
       headers: param.header 
     }).then((res)=> { 
-      console.info('success: ', res);
+      console.info('success: ', res.data);
       // if (app.Config.debug) {
       //   console.info('result', res);
       // }

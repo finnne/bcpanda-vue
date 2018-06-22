@@ -1,3 +1,8 @@
+export const Toast  = {
+	show (){
+		console.log('dfgdfgdfg')
+	}
+}
 
 // export class Nav {
 // 	constructor(
@@ -106,26 +111,26 @@
 
 const Loading = {
 
-	show: function(that){
-		that.$Spin.show({
-	        render: (h) => {
-	            return h('div', [
-	                h('Icon', {
-	                    'class': 'demo-spin-icon-load',
-	                    props: {
-	                        type: 'load-c',
-	                        size: 18
-	                    }
-	                }),
-	                h('div', 'Loading')
-	            ])
-	        }
-	    });
-	},
+	// show: function(that){
+	// 	that.$Spin.show({
+	//         render: (h) => {
+	//             return h('div', [
+	//                 h('Icon', {
+	//                     'class': 'demo-spin-icon-load',
+	//                     props: {
+	//                         type: 'load-c',
+	//                         size: 18
+	//                     }
+	//                 }),
+	//                 h('div', 'Loading')
+	//             ])
+	//         }
+	//     });
+	// },
 
-	hide(that){
-		that.$Spin.hide();
-	}
+	// hide(that){
+	// 	that.$Spin.hide();
+	// }
 }
 
 
@@ -137,6 +142,7 @@ const Loading = {
 // 	}
 // }
 
-export const Helper = {
-	loading: Loading,
-}
+// module.exports = {
+// 	loading: Loading,
+// 	toast: Toast
+// }

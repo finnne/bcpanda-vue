@@ -1,35 +1,38 @@
 <template>
-  <div>
-    <TagHeader>
+  <div class="viewport">
+    <!-- <TagHeader>
       区块链熊猫
-      <!-- <span slot="right">登录</span> -->
-    </TagHeader>
-
-    <div class="sec_banner clearfix">
-      <p class="beta_text">区块链熊猫beta版</p>
-      <img class="img_panda" src="../assets/imgs/banner_panda.png"/>
-      <img class="img_title_1" src="../assets/imgs/banner_h1.png"/>
-      <img class="img_title_2" src="../assets/imgs/banner_h2.png"/>
-      <button @click="receiveBtnClick()">立即领取</button>
-    </div>
-
-    <div class="sec_list">
-      <div class="head">
-        <h3>熊猫广场</h3>
-        <a @click="navToExplain()">什么是区块链熊猫？</a>
+      <span slot="right">登录</span>
+    </TagHeader> -->
+    <header>
+      <x-header title="区块链熊猫" :left-options="{showBack:false}"></x-header>
+    </header>
+    <section>
+      <div class="sec_banner clearfix">
+        <p class="beta_text">区块链熊猫beta版</p>
+        <img class="img_panda" src="../assets/imgs/banner_panda.png"/>
+        <img class="img_title_1" src="../assets/imgs/banner_h1.png"/>
+        <img class="img_title_2" src="../assets/imgs/banner_h2.png"/>
+        <button @click="receiveBtnClick()">立即领取</button>
       </div>
 
-      <TagPandaList v-bind:listData="pandaList" v-bind:pandaClick="showPandaDetail"></TagPandaList>
+      <div class="sec_list">
+        <div class="head">
+          <h3>熊猫广场</h3>
+          <a @click="navToExplain()">什么是区块链熊猫？</a>
+        </div>
 
-    </div>
-
+        <TagPandaList v-bind:listData="pandaList" v-bind:pandaClick="showPandaDetail"></TagPandaList>
+      </div>
+    </section>
+    <!-- <tabbar slot="bottom"></tabbar> -->
   </div>
 </template>
 
 <script>
   import { Http } from '@/class/http.js';
   import { Pager } from '@/class/entity.js';
-  // import { Helper } from '@/class/helper.js';
+  // import { Toast } from '@/class/helper.js';
   import { Common } from '@/class/common.js';
 
   import TagPandaList from '@/components/TagPandaList.vue';
@@ -63,20 +66,64 @@
               for (let panda of pandas) {
                 panda.degree = Common.foo.getDegreeTextByNum(panda.degree);
               }
-              pager.set(pandas, 4);
+              pager.set(pandas, 40);
               this.pandaList = pager.next();
               // this.pullBottomFlag = true;
             }
             else {
-              this.$Message.error(dic.msg);
+              this.$vux.toast.show({text:dic.msg, type:'warn'});
             }
             callback && callback();
           }
         });
       },
+
+      
+      navToExplain: function(){
+        this.$router.push({ name: 'Explain'});
+      },
+
+      receiveBtnClick: function(){
+        // if(Global.loginState){
+        //   this.loading.show();
+          Http.request({
+            url: '/static/data/adopt.json',
+            success: (dic)=> {
+              // this.loading.hide();
+              if(dic.code==0){
+                let panda = dic.result;
+                panda.degree = Common.foo.getDegreeTextByNum(panda.degree);
+                // this.events.publish('updateMinePage');
+                // this.nav.root.push(ReceivePage, panda);
+                this.$router.push({ name: 'SuccessReceive', params:{ panda } });
+
+              }
+              else{
+                this.$vux.toast.show({text:dic.msg, type:'warn'});
+              }
+            }
+          });
+          // .error(err =>{
+          //   this.loading.hide();
+          // });
+        // }
+        // else{
+        //   this.nav.root.push(LoginPage);
+        // }
+      },
+
       showPandaDetail: function(id){
-        console.log('id',id);
-      }
+        let panda;
+        for(let p of this.pandaList){
+          if(p.pandaId==id){
+            panda = p;
+          }
+        }
+        if(panda){
+          // this.nav.root.push(DetailPage, panda);
+          this.$router.push({ name: 'PandaDetail', params:{ panda } });
+        }
+      },
 
     },
 

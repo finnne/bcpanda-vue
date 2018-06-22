@@ -4,13 +4,17 @@ import Vue from 'vue';
 import App from './App';
 import TagHeader from '@/components/TagHeader';
 import router from './router';
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
-// import '@/assets/css/base.scss';
+import { ToastPlugin, LoadingPlugin, ConfirmPlugin } from 'vux';
+import { XHeader } from 'vux';
 
-Vue.use(iView);
+// Vue.use(XHeader);
+Vue.use(ToastPlugin);
+Vue.use(LoadingPlugin);
+Vue.use(ConfirmPlugin);
 
-Vue.component(TagHeader.name, TagHeader);
+// Vue.component(TagHeader.name, TagHeader);
+Vue.component(XHeader.name, XHeader);
+// Vue.component(LoadMore.name, LoadMore);
 
 Vue.config.productionTip = false
 
