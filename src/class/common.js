@@ -6,7 +6,8 @@ const CommonFoo = {
     let t = Number(el.getAttribute('data-time'));
     let text = el.getAttribute('data-text');
     el.setAttribute('disabled', 'true');
-    el.innerHTML = t + '秒后重发';
+    el.style.opacity = '0.6';
+    // el.innerHTML = t + '秒后重发';
     let timer = setInterval(function () {
       t--;
       if (t <= 0) {
@@ -15,6 +16,7 @@ const CommonFoo = {
           timer = null;
         }
         el.setAttribute('disabled', 'false');
+        el.style.opacity = '1';
         el.innerHTML = text;
       } else {
         el.innerHTML = t + '秒后重发';

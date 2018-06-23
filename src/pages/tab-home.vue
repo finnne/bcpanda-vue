@@ -10,9 +10,9 @@
     <section>
       <div class="sec_banner clearfix">
         <p class="beta_text">区块链熊猫beta版</p>
-        <img class="img_panda" src="../assets/imgs/banner_panda.png"/>
-        <img class="img_title_1" src="../assets/imgs/banner_h1.png"/>
-        <img class="img_title_2" src="../assets/imgs/banner_h2.png"/>
+        <img class="img_panda" src="/static/imgs/banner_panda.png"/>
+        <img class="img_title_1" src="/static/imgs/banner_h1.png"/>
+        <img class="img_title_2" src="/static/imgs/banner_h2.png"/>
         <button @click="receiveBtnClick()">立即领取</button>
       </div>
 
@@ -30,9 +30,7 @@
 </template>
 
 <script>
-  import { Http } from '@/class/http.js';
   import { Pager } from '@/class/entity.js';
-  // import { Toast } from '@/class/helper.js';
   import { Common } from '@/class/common.js';
 
   import TagPandaList from '@/components/TagPandaList.vue';
@@ -54,7 +52,7 @@
 
     methods: {
       loadPage: function(callback){
-        Http.request({
+        this.$http.request({
           // url: app.Config.domain+ '/panda/list',
           url: '/static/data/list.json',
           success: (dic)=> {
@@ -84,12 +82,12 @@
       },
 
       receiveBtnClick: function(){
-        // if(Global.loginState){
-        //   this.loading.show();
-          Http.request({
+        if(this.$store.state.loginState){
+          this.$vux.loading.show();
+          this.$http.request({
             url: '/static/data/adopt.json',
             success: (dic)=> {
-              // this.loading.hide();
+              this.$vux.loading.hide();
               if(dic.code==0){
                 let panda = dic.result;
                 panda.degree = Common.foo.getDegreeTextByNum(panda.degree);
@@ -101,15 +99,16 @@
               else{
                 this.$vux.toast.show({text:dic.msg, type:'warn'});
               }
+            },
+            error: (err)=>{
+                this.$vux.loading.hide();
+                this.$vux.toast.show({text:err, type:'warn'});
             }
           });
-          // .error(err =>{
-          //   this.loading.hide();
-          // });
-        // }
-        // else{
-        //   this.nav.root.push(LoginPage);
-        // }
+        }
+        else{
+          this.$router.push({ name: 'SignIn'});
+        }
       },
 
       showPandaDetail: function(id){
@@ -120,7 +119,6 @@
           }
         }
         if(panda){
-          // this.nav.root.push(DetailPage, panda);
           this.$router.push({ name: 'PandaDetail', params:{ panda } });
         }
       },
@@ -137,7 +135,7 @@
   .sec_banner{
     &{
       height: 17rem;
-      background: url('../assets/imgs/banner_bg.png') no-repeat center center;
+      background: url('/static/imgs/banner_bg.png') no-repeat center center;
       background-size: cover;
       padding-left: 2rem;
       position: relative;

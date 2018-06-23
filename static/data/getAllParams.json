@@ -1,0 +1,11 @@
+{
+    "code": 0,
+    "msg": null,
+    "showType": 0,
+    "msgTitle": null,
+    "result": {
+        "register_imagecode_switch": "1",
+        "register_style": "1"
+    },
+    "other": null
+}

@@ -1,5 +1,32 @@
 import Axios from 'axios';
 
+const loginStateHandler = (dic) => {
+  if (dic.code == 1002 || dic.code == 1003) {
+    // wx.hideLoading();
+    // const app = getApp();
+    // app.setLoginState(null);
+    // wx.navigateTo({
+    //   url: '/pages/sign-in/sign-in',
+    // })
+    console.info('is exit!!!')
+    return false;
+  }
+  else{
+    return true;
+  }
+}
+
+// export class Request{
+//   constructor(that){
+//     this.a = that;
+//     console.log('that',that)
+//   }
+
+//   get(){
+//     console.log('get',this.a)
+//   }
+// }
+
 export const Http = {
   request: (param) => {
     // const app = getApp();   
@@ -16,17 +43,17 @@ export const Http = {
     };
     
     // if (app.Config.debug) {
-    //   console.info(param.method||'GET', param.url, param.data);
+      console.info(param.method||'GET', param.url, param.data);
     // }
+setTimeout(function(){
     Axios({ 
       method: param.method, 
       url: param.url, 
       data: param.data, 
       headers: param.header 
     }).then((res)=> { 
-      console.info('success: ', res.data);
       // if (app.Config.debug) {
-      //   console.info('result', res);
+        console.info('result', res.data);
       // }
       // if (res.status==200){
         // if (!app.Global.sessionid) {
@@ -58,22 +85,8 @@ export const Http = {
         console.error('catch error: ', err);
       }
     });
+},1000);    
 
   },
 }
 
-const loginStateHandler = (dic) => {
-  if (dic.code == 1002 || dic.code == 1003) {
-    // wx.hideLoading();
-    // const app = getApp();
-    // app.setLoginState(null);
-    // wx.navigateTo({
-    //   url: '/pages/sign-in/sign-in',
-    // })
-    console.info('is exit!!!')
-    return false;
-  }
-  else{
-    return true;
-  }
-}

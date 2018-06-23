@@ -40,7 +40,7 @@ export default {
 	h1,h2,h3,h4,h5,h6{font-weight:normal;margin: 0;}
 	ol,ul,li,dl,dt,dd{list-style-type:none;}
 	a {text-decoration:none;outline: none;}
-	input,button{font-family: inherit;}
+	input,button{font-family: inherit; outline: none;}
 	input::-webkit-outer-spin-button,
 	input::-webkit-inner-spin-button {-webkit-appearance: none !important;  margin: 0; }
 
