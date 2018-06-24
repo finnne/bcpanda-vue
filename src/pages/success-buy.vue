@@ -35,15 +35,15 @@
 		},
 		methods: {
 			enterMineBtnClick: function(){
-				// this.nav.tab.select(1);
-				// this.nav.root.popToRoot();
-				alert('enter mine')
+				// this.$store.commit('selectTabIndex', 2);
+				this.$store.commit('setTabIndex', 2);
+				this.$router.push({ name: 'TabMine' });
 			},
 
 			backHomeBtnClick: function() {
-				// this.nav.tab.select(0);
-				// this.nav.root.popToRoot();
-				alert('back home')
+				// this.$store.commit('selectTabIndex', 1);
+				this.$store.commit('setTabIndex', 1);
+				this.$router.push({ name: 'TabHome' })
 			}
 		}
 	}

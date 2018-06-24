@@ -61,16 +61,10 @@
 		},
 		methods:{
 			buyBtnClick: function(){
-				// if(!Global.loginState){
-				// 	let param = {
-				// 		back: {
-				// 			view: 'root',
-				// 			index: this.nav.root.length() - 1,
-				// 		}
-				// 	}
-				// 	this.nav.root.push(LoginPage, param);
-				// 	return;
-				// }
+				if(!this.$store.state.loginState){
+					this.$router.push({ name:'SignIn' });
+					return;
+				}
 				if (!this.panda){
 					this.$vux.toast.text('熊猫不存在');
 					return;

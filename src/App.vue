@@ -13,7 +13,7 @@ export default {
   data(){
       return {
           transitionName:'',
-          keepView: ['TabHome'],
+          keepView: ['TabHome', 'TabMine', 'MyPandaList'],
       }
   },
 
@@ -21,8 +21,10 @@ export default {
   watch: {//使用watch 监听$router的变化
     $route(to, from) {  	
       //如果to索引大于from索引,判断为前进状态,反之则为后退状态
-      if(to.meta.index > from.meta.index){
-        //设置动画名称
+      if(to.meta.index == 0 && from.meta.index == 0){
+        this.transitionName = '';
+      }
+      else if(to.meta.index > from.meta.index){
         this.transitionName = 'slide-left';
       }else{
         this.transitionName = 'slide-right';
@@ -76,35 +78,38 @@ export default {
 // ======================= vux override style =================
 	 
 
-	body .vux-header{
-		width: 100%; 
-		height: 40px;
-		position: absolute; 
-		left: 0px; 
-		top: 0px; 
-		z-index: 100;
-		background-color: #f8f8f8;
-		padding: 0;
-		border-bottom: 1px solid #e4e4e4;
+	body {
+		.vux-header{
+			width: 100%; 
+			height: 40px;
+			position: absolute; 
+			left: 0px; 
+			top: 0px; 
+			z-index: 100;
+			background-color: #f8f8f8;
+			padding: 0;
+			border-bottom: 1px solid #e4e4e4;
 
-		.vux-header-title{
-			font-size: 16px;
-			color: #666666;
-		}
-		.vux-header-left{
-			height: 20px;
-			top: 0;
-			bottom:0;
-			margin: auto;
-		}
-		.vux-header-left > a,
-		.vux-header-right{
-			color: $lightBlue;
-		}
-		.vux-header-left .left-arrow:before{
-			border-color: $lightBlue;
+			.vux-header-title{
+				font-size: 16px;
+				color: #666666;
+			}
+			.vux-header-left{
+				height: 20px;
+				top: 0;
+				bottom:0;
+				margin: auto;
+			}
+			.vux-header-left > a,
+			.vux-header-right{
+				color: $lightBlue;
+			}
+			.vux-header-left .left-arrow:before{
+				border-color: $lightBlue;
+			}
 		}
 	}
+
 
 // ======================= public style =================
 	.colred{
@@ -136,9 +141,14 @@ export default {
 			height: 40px;
 		}
 		& > section{
+			position: relative;
 			flex-grow: 1;
 			overflow: auto;
 			&::-webkit-scrollbar {display:none}
+		}
+		& > footer{
+			width: 100%;
+			height: 50px;
 		}
 	}
 	.full{

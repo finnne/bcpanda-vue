@@ -1,5 +1,6 @@
 <template>
   <div class="viewport">
+
     <!-- <TagHeader>
       区块链熊猫
       <span slot="right">登录</span>
@@ -7,6 +8,7 @@
     <header>
       <x-header title="区块链熊猫" :left-options="{showBack:false}"></x-header>
     </header>
+
     <section>
       <div class="sec_banner clearfix">
         <p class="beta_text">区块链熊猫beta版</p>
@@ -25,7 +27,11 @@
         <TagPandaList v-bind:listData="pandaList" v-bind:pandaClick="showPandaDetail"></TagPandaList>
       </div>
     </section>
-    <!-- <tabbar slot="bottom"></tabbar> -->
+
+    <footer>
+      <TagTabBar></TagTabBar>
+    </footer>
+    
   </div>
 </template>
 
@@ -33,13 +39,14 @@
   import { Pager } from '@/class/entity.js';
   import { Common } from '@/class/common.js';
 
+  import TagTabBar from '@/components/TagTabBar.vue';
   import TagPandaList from '@/components/TagPandaList.vue';
 
   const pager = new Pager();
 
   export default {
     name: 'TabHome',
-    components: { TagPandaList },
+    components: { TagPandaList, TagTabBar },
     data () {
       return {
         pandaList: []

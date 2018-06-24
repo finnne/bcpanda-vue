@@ -36,9 +36,9 @@
 
 		methods: {
 			enterMineBtnClick: function(){
-				// this.nav.tab.select(1);
-				// this.nav.root.popToRoot();
-				console.log('enterMineBtnClick')
+				// this.$store.commit('selectTabIndex', 2);
+				this.$store.commit('setTabIndex', 2);
+				this.$router.push({ name: 'TabMine' });
 			}
 		}
 	}

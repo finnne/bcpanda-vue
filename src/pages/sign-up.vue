@@ -306,10 +306,10 @@
 					data: params,
 					success: (dic) => {	
 						if(dic.code==0){
-							this.$store.commit("setLoginState",token);
+							this.$store.commit("setLoginState",dic.result);
 							setTimeout(()=>{
 								this.$router.back(-3);
-							}, 3000);
+							}, 2000);
 						}else{
 							setTimeout(()=>{
 								this.$router.back(-1);

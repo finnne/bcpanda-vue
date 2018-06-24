@@ -13,6 +13,7 @@ import { XHeader } from 'vux';
 import { Http } from '@/class/http.js';
 import Config from '../static/js/appConfig.js';
 
+
 // Vue.use(XHeader);
 Vue.use(ToastPlugin);
 Vue.use(LoadingPlugin);
@@ -20,6 +21,7 @@ Vue.use(ConfirmPlugin);
 
 // Vue.component(TagHeader.name, TagHeader);
 Vue.component(XHeader.name, XHeader);
+
 // Vue.component(LoadMore.name, LoadMore);
 
 Vue.config.productionTip = false;

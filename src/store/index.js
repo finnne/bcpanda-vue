@@ -8,6 +8,7 @@ export default new Vuex.Store({//store对象
         loginState: 0,
         sessionid: '',
         token: '',
+        tabIndex: 1,
     },
     mutations:{
     	setLoginState: function(obj, tk) {
@@ -22,5 +23,22 @@ export default new Vuex.Store({//store对象
 		      // wx.removeStorageSync('loginTokenkey');
 		    }
 		},
+		setTabIndex: function(obj, index){
+			this.state.tabIndex = index;
+		},
+		// selectTabIndex: function(obj, index){
+		// 	let page;
+		// 	switch(index){
+		// 		case 1:
+		// 			page = 'TabHome';
+		// 			break;
+		// 		case 2:
+		// 			page = 'TabMine';
+		// 			break;
+		// 	}
+		// 	if(page){
+		// 		this.$router.push({ name:page });
+		// 	}
+		// },
     }
 });
