@@ -30,7 +30,7 @@
 
 	import { InlineXSwitch } from 'vux'
 	import { Common } from '@/class/common.js';
-	import JSEncrypt from '../../static/js/encrypt.min.js';
+	import JSEncrypt from '../../static/lib/encrypt.min.js';
 
 	export default {
 		name: 'TagSignIn',
@@ -38,8 +38,8 @@
 		props: ['ParentCpnt'],
 		data(){
 			return{
-				txtTel: '12342342343',
-				txtPwd: 'fadsfasdfasdf',
+				txtTel: '',
+				txtPwd: '',
 				pwdSwitch: false,
 			}
 		},
@@ -88,7 +88,7 @@
 			getPublicKey: function(){
 				return new Promise((resolve, reject)=>{
 					this.$http.request({
-						url: '../../static/data/getPublicKey.json',
+						url: this.$config.domain +'/static/data/getPublicKey.json',
 						success: (dic) => {  
 							if(dic.code==0){
 								resolve(dic.result);
@@ -122,7 +122,7 @@
 				    };
 				    
 				    this.$http.request({
-				    	url: '../../static/data/pandaLogin.json', 
+				    	url: this.$config.domain +'/static/data/pandaLogin.json', 
 				    	// url: this.$config.domain +'/app/security/pandaLogin', 
 				    	// method: 'POST',
 				    	data: data,

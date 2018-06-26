@@ -58,8 +58,8 @@
         }
         this.$vux.loading.show();
         this.$http.request({
-          // url: app.Config.domain+ '/panda/list',
-          url: '../../static/data/order.json',
+          // url: this.$config.domain+ '/panda/list',
+          url: this.$config.domain +'/static/data/order.json',
           success: (dic)=> {
             this.$vux.loading.hide();
             if(dic.code==0){

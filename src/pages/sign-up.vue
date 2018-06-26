@@ -55,15 +55,15 @@
 
 	import { InlineXSwitch, Checklist } from 'vux'
 	import { Common } from '@/class/common.js';
-	import JSEncrypt from '../../static/js/encrypt.min.js';
+	import JSEncrypt from '../../static/lib/encrypt.min.js';
 
 	export default {
 		name: 'SignUp',
 		components: { InlineXSwitch, Checklist },
 		data(){
 			return{
-				txtTel: '12342342343',
-				txtPwd: 'fadsfasdfasdf',
+				txtTel: '',
+				txtPwd: '',
 				pwdSwitch: false,
 				txtSmsCode: '',
 				txtImageCode: '',
@@ -95,7 +95,7 @@
 			// 获取图片验证码开关配置
 			getImageCodeSwitch: function(){
 				this.$http.request({
-					url: '../../static/data/getAllParams.json',
+					url: this.$config.domain +'/static/data/getAllParams.json',
 					// url: this.$config.domain +'/app/common/getAllParams',
 					success: (dic) => {
 						if(dic.code==0){
@@ -119,7 +119,7 @@
 				}
 
 				this.$http.request({
-					url: '../../static/data/ok.json',
+					url: this.$config.domain +'/static/data/ok.json',
 					// url: Global.domain +'/app/security/validatePhone/'+this.txtTel,
 					success: (dic) => {    	
 						if(dic.code==0){
@@ -150,7 +150,7 @@
 			// 发送短信验证码
 			sendSmsCode: function(telNum, imgCode, callback){
 				this.$http.request({
-					url: '../../static/data/ok.json',
+					url: this.$config.domain +'/static/data/ok.json',
 					// url: Global.domain +'/app/common/sendAuthCode/new/'+ telNum +'/1/'+ imgCode,
 					success: (dic) => {    	
 						callback && callback(dic);
@@ -230,7 +230,7 @@
 			getPublicKey: function(){
 				return new Promise((resolve, reject)=>{
 					this.$http.request({
-						url: '../../static/data/getPublicKey.json',
+						url: this.$config.domain +'/static/data/getPublicKey.json',
 						success: (dic) => {  
 							if(dic.code==0){
 								resolve(dic.result);
@@ -265,7 +265,7 @@
 				    };
 				    
 				    this.$http.request({
-				    	url: '../../static/data/ok.json', 
+				    	url: this.$config.domain +'/static/data/ok.json', 
 				    	// url: this.$config.domain +'/app/security/register', 
 				    	// method: 'POST',
 				    	data: data,
@@ -300,7 +300,7 @@
 					"appVersion": this.$config.channel,
 				};
 				this.$http.request({
-					url: '../../static/data/pandaLogin.json', 
+					url: this.$config.domain +'/static/data/pandaLogin.json', 
 					// url: this.$config.domain +'/app/security/pandaLogin',
 					// method: 'POST',
 					data: params,

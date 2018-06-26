@@ -140,7 +140,7 @@
             return;
           }
           this.$http.request({
-            url: '../../static/data/account.json',
+            url: this.$config.domain +'/static/data/account.json',
             success: (dic)=> {
               if(dic.code==0){
                 this.userInfo = dic.result;
@@ -169,7 +169,7 @@
           if(this.userInfo.signstate) return;
           this.$vux.loading.show();
           this.$http.request({
-            url: '../../static/data/signin.json',
+            url: this.$config.domain +'/static/data/signin.json',
             // url: this.request.get(this.$config.domain +'/panda/addScore'),
             success: (dic)=> {
               this.$vux.loading.hide();  
@@ -195,7 +195,7 @@
         logoutClick: function(){
           this.$vux.loading.show();
           this.$http.request({
-            url: '../../static/data/ok.json',
+            url: this.$config.domain +'/static/data/ok.json',
             // url: this.request.get(this.$config.domain +'/app/security/logout'),
             success: (dic)=> {
               this.$vux.loading.hide();  

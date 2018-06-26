@@ -79,7 +79,7 @@
 						};
 						this.$vux.loading.show();
 						this.$http.request({
-							url: '../../static/data/adopt.json',
+							url: this.$config.domain +'/static/data/adopt.json',
 							data: body,
 							success: (dic) => {		
 								this.$vux.loading.hide();

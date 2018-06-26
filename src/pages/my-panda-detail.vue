@@ -138,7 +138,7 @@
 				  this.$vux.loading.show();
 				  this.$http.request({
 				    // url: this.$config.domain + '/panda/publish',
-				    url: '../../static/data/ok.json',
+				    url: this.$config.domain +'/static/data/ok.json',
 				    data: body,
 				    success: (dic) => {
 				      this.$vux.loading.hide();
@@ -167,7 +167,7 @@
 				this.$vux.loading.show();
 				this.$http.request({
 				  // url: this.$config.domain + '/panda/cancel',
-				  url: '../../static/data/ok.json',
+				  url: this.$config.domain +'/static/data/ok.json',
 				  data: body,
 				  success: (dic) => {
 				    this.$vux.loading.hide();

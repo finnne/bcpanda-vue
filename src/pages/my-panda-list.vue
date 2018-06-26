@@ -49,8 +49,8 @@
         }
         this.$vux.loading.show();
         this.$http.request({
-          // url: app.Config.domain+ '/panda/list',
-          url: '../../static/data/myPandas.json',
+          // url: this.$config.domain+ '/panda/list',
+          url: this.$config.domain +'/static/data/myPandas.json',
           success: (dic)=> {
             this.$vux.loading.hide();
             if(dic.code==0){
@@ -82,7 +82,7 @@
         if(this.$store.state.loginState){
           this.$vux.loading.show();
           this.$http.request({
-            url: '../../static/data/adopt.json',
+            url: this.$config.domain +'/static/data/adopt.json',
             success: (dic)=> {
               this.$vux.loading.hide();
               if(dic.code==0){

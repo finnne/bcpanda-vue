@@ -60,8 +60,8 @@
     methods: {
       loadPage: function(callback){
         this.$http.request({
-          // url: app.Config.domain+ '/panda/list',
-          url: '../../static/data/list.json',
+          // url: this.$config.domain+ '/panda/list',
+          url: this.$config.domain +'/static/data/list.json',
           success: (dic)=> {
             if (dic.code == 0) {
               let pandas = dic.result.particulars;
@@ -92,7 +92,7 @@
         if(this.$store.state.loginState){
           this.$vux.loading.show();
           this.$http.request({
-            url: '../../static/data/adopt.json',
+            url: this.$config.domain +'/static/data/adopt.json',
             success: (dic)=> {
               this.$vux.loading.hide();
               if(dic.code==0){
