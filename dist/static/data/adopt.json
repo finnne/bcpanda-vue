@@ -1,0 +1,25 @@
+{
+	"code":0,
+	"msg": "error test",
+    "showType": 0,
+    "msgTitle": null,
+	"result":{
+		"bellyColor": "深灰",
+		"bodyColor": "静谧蓝",
+		"bodyType": "赖皮",
+		"degree": 0,
+		"eyeColor": "深灰",
+		"eyeType": "小鄙视",
+		"generation": 0,
+		"mouthType": "甜蜜蜜",
+		"name": "亚古",
+		"pandaId": 1,
+		"phone": "手机号",
+		"streak": "无",
+		"streakColor": "米驼",
+		"backColor": "abe2ff",
+		"url": "http://appweb01.lend51.com/JieWebApp/app/common/downloadFile/images/2018/04/20/RamdonPandaPhoto_222109932_1260",
+		"userName": "大空翼",
+		"userHead": "http://appweb01.lend51.com/JieWebApp/app/common/downloadFile/images/2017/07/25/14090_170639199_1923"
+	}
+}

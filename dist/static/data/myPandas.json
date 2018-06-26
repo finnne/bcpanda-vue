@@ -1,0 +1,59 @@
+{
+  "code": 0,
+  "msg": null,
+  "showType": 0,
+  "msgTitle": null,
+  "result": {
+    "userName": null,
+    "phone": null,
+    "headUrl": null,
+    "banbooScore": null,
+    "signstate": false,
+    "adoptStatus": true,
+    "particulars": [
+      {
+        "headUrl": "http://appweb01.lend51.com/JieWebApp/app/common/downloadFile/images/2017/07/25/14090_170639199_1923",
+        "userName": "1355688****",
+        "name": "喜兰",
+        "url": "http://appweb01.lend51.com/JieWebApp/app/common/downloadFile/images/2018/04/20/RamdonPandaPhoto_222041925_5560",
+        "generation": 0,
+        "pandaId": 5,
+        "price": null,
+        "degree": 0,
+        "bodyType": null,
+        "bodyColor": null,
+        "eyeType": null,
+        "eyeColor": null,
+        "mouthType": null,
+        "streak": null,
+        "streakColor": null,
+        "bellyColor": null,
+        "backColor": "b4d7ff",
+        "state": 1,
+        "orderId": 16
+      },
+      {
+        "headUrl": "http://appweb01.lend51.com/JieWebApp/app/common/downloadFile/images/2017/07/25/14090_170639199_1923",
+        "userName": "1355688****",
+        "name": "兽兽",
+        "url": "http://appweb01.lend51.com/JieWebApp/app/common/downloadFile/images/2018/04/20/RamdonPandaPhoto_222109932_1260",
+        "generation": 0,
+        "pandaId": 259,
+        "price": 0,
+        "degree": 3,
+        "bodyType": null,
+        "bodyColor": null,
+        "eyeType": null,
+        "eyeColor": null,
+        "mouthType": null,
+        "streak": null,
+        "streakColor": null,
+        "bellyColor": null,
+        "backColor": "bedaff",
+        "state": 1,
+        "orderId": 260
+      }
+    ]
+  },
+  "other": null
+}
