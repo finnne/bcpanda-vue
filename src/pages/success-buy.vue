@@ -81,7 +81,7 @@
 				right: -20px;
 				font-style: normal;
 				padding: 6px 6px 10px 6px;
-				background: url('/static/imgs/tag_bg.png') no-repeat center center;
+				background: url('../../static/imgs/tag_bg.png') no-repeat center center;
 				background-size: 100% 100%;
 			}
 

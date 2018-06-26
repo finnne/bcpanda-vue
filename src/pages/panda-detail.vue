@@ -25,7 +25,7 @@
 					<h6>所有者:</h6>
 					<span class="user_head">
 						<img v-if="panda.headUrl" :src="panda.headUrl"/>
-						<img v-else src="/static/imgs/head_default.png"/>
+						<img v-else src="../../static/imgs/head_default.png"/>
 					</span>
 					<label class="user_name">{{panda.userName}}</label>
 				</div>
@@ -79,7 +79,7 @@
 						};
 						this.$vux.loading.show();
 						this.$http.request({
-							url: '/static/data/adopt.json',
+							url: '../../static/data/adopt.json',
 							data: body,
 							success: (dic) => {		
 								this.$vux.loading.hide();

@@ -7,7 +7,7 @@
     <section>
         <div class="list_empty middle-box" v-if="orderList && orderList.length==0">
           <span>
-            <img src="/static/imgs/list_empty.png"/>
+            <img src="../../static/imgs/list_empty.png"/>
             <br/>
             <em>没有相关的订单信息</em>
           </span>
@@ -59,7 +59,7 @@
         this.$vux.loading.show();
         this.$http.request({
           // url: app.Config.domain+ '/panda/list',
-          url: '/static/data/order.json',
+          url: '../../static/data/order.json',
           success: (dic)=> {
             this.$vux.loading.hide();
             if(dic.code==0){

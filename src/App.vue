@@ -108,6 +108,25 @@ export default {
 				border-color: $lightBlue;
 			}
 		}
+		.vux-toast{
+			.weui-toast{
+				padding: 10px;
+			}
+			.weui-icon_toast{
+				margin: 0;
+			}
+			.weui-icon_toast:before{
+				font-size: 30px;
+			}
+			.weui-toast__content{
+				font-size: 10px;
+				color: #ffffff;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+		}
+		
+		
 	}
 
 

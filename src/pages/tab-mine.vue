@@ -22,23 +22,23 @@
         <ul class="link_group">
           <li @click="myPandaBtnClick()">
             <span class="link_icon middle-box">
-              <img src="/static/imgs/icon_panda.png"/>
+              <img src="../../static/imgs/icon_panda.png"/>
             </span>
             <div class="link_block middle-box">
               <label>我的熊猫</label>
               <span class="link_right middle-box">
-                <img class="link_arrow" src="/static/imgs/icon_arrow.png"/>
+                <img class="link_arrow" src="../../static/imgs/icon_arrow.png"/>
               </span>
             </div>
           </li>
           <li @click="myOrderBtnClick()">
             <span class="link_icon middle-box">
-              <img src="/static/imgs/icon_order.png"/>
+              <img src="../../static/imgs/icon_order.png"/>
             </span>
             <div class="link_block middle-box">
               <label>我的订单</label>
               <span class="link_right middle-box">
-                <img class="link_arrow" src="/static/imgs/icon_arrow.png"/>
+                <img class="link_arrow" src="../../static/imgs/icon_arrow.png"/>
               </span>
             </div>
           </li>
@@ -47,7 +47,7 @@
         <ul class="link_group">
           <li>
             <span class="link_icon middle-box">
-              <img src="/static/imgs/icon_banboo.png"/>
+              <img src="../../static/imgs/icon_banboo.png"/>
             </span>
             <div class="link_block middle-box">
               <label>我的竹子</label>
@@ -58,13 +58,13 @@
           </li>
           <li @click="signinClick()">
             <span class="link_icon middle-box">
-              <img src="/static/imgs/icon_sign.png"/>
+              <img src="../../static/imgs/icon_sign.png"/>
             </span>
             <div class="link_block middle-box">
               <label>每日签到</label>
               <span class="link_right middle-box">
                 <em :class="(userInfo.signstate ? 'colgray' : 'colblue')">{{userInfo.signstate ? "今日已领" : "签到领竹子"}}</em>
-                <img class="link_arrow" src="/static//imgs/icon_arrow.png"/>
+                <img class="link_arrow" src="../../static//imgs/icon_arrow.png"/>
               </span>
             </div>
           </li>
@@ -89,7 +89,7 @@
   import TagSignIn from '@/components/TagSignIn.vue';
   
   const defaultInfo = {
-    "headUrl":"/static/imgs/head_default.png",
+    "headUrl":"../../static/imgs/head_default.png",
     "userName": "--",
     "phone": "--",
     "banbooScore": "--",
@@ -140,7 +140,7 @@
             return;
           }
           this.$http.request({
-            url: '/static/data/account.json',
+            url: '../../static/data/account.json',
             success: (dic)=> {
               if(dic.code==0){
                 this.userInfo = dic.result;
@@ -169,7 +169,7 @@
           if(this.userInfo.signstate) return;
           this.$vux.loading.show();
           this.$http.request({
-            url: '/static/data/signin.json',
+            url: '../../static/data/signin.json',
             // url: this.request.get(this.$config.domain +'/panda/addScore'),
             success: (dic)=> {
               this.$vux.loading.hide();  
@@ -195,7 +195,7 @@
         logoutClick: function(){
           this.$vux.loading.show();
           this.$http.request({
-            url: '/static/data/ok.json',
+            url: '../../static/data/ok.json',
             // url: this.request.get(this.$config.domain +'/app/security/logout'),
             success: (dic)=> {
               this.$vux.loading.hide();  
@@ -224,7 +224,7 @@
   .sec_banner{
     &{
       height: 17.5rem;
-      background: url('/static/imgs/banner_mine.png') no-repeat center center;
+      background: url('../../static/imgs/banner_mine.png') no-repeat center center;
       background-size: cover;
       position: relative;
     }

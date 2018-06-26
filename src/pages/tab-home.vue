@@ -12,9 +12,9 @@
     <section>
       <div class="sec_banner clearfix">
         <p class="beta_text">区块链熊猫beta版</p>
-        <img class="img_panda" src="/static/imgs/banner_panda.png"/>
-        <img class="img_title_1" src="/static/imgs/banner_h1.png"/>
-        <img class="img_title_2" src="/static/imgs/banner_h2.png"/>
+        <img class="img_panda" src="../../static/imgs/banner_panda.png"/>
+        <img class="img_title_1" src="../../static/imgs/banner_h1.png"/>
+        <img class="img_title_2" src="../../static/imgs/banner_h2.png"/>
         <button @click="receiveBtnClick()">立即领取</button>
       </div>
 
@@ -61,7 +61,7 @@
       loadPage: function(callback){
         this.$http.request({
           // url: app.Config.domain+ '/panda/list',
-          url: '/static/data/list.json',
+          url: '../../static/data/list.json',
           success: (dic)=> {
             if (dic.code == 0) {
               let pandas = dic.result.particulars;
@@ -92,7 +92,7 @@
         if(this.$store.state.loginState){
           this.$vux.loading.show();
           this.$http.request({
-            url: '/static/data/adopt.json',
+            url: '../../static/data/adopt.json',
             success: (dic)=> {
               this.$vux.loading.hide();
               if(dic.code==0){
@@ -142,7 +142,7 @@
   .sec_banner{
     &{
       height: 17rem;
-      background: url('/static/imgs/banner_bg.png') no-repeat center center;
+      background: url('../../static/imgs/banner_bg.png') no-repeat center center;
       background-size: cover;
       padding-left: 2rem;
       position: relative;

@@ -8,7 +8,7 @@
       <div class="sec_list clearfix">
         <div v-if="pandaList && pandaList.length==0">
           <div class="panda_empty">
-            <img src="/static/imgs/empty_panda.png"/>
+            <img src="../../static/imgs/empty_panda.png"/>
             <h5>您还没有自己的熊猫</h5>
             <p v-if="!adoptStatus">立即去领养一只吧</p>
           </div>
@@ -50,7 +50,7 @@
         this.$vux.loading.show();
         this.$http.request({
           // url: app.Config.domain+ '/panda/list',
-          url: '/static/data/myPandas.json',
+          url: '../../static/data/myPandas.json',
           success: (dic)=> {
             this.$vux.loading.hide();
             if(dic.code==0){
@@ -82,7 +82,7 @@
         if(this.$store.state.loginState){
           this.$vux.loading.show();
           this.$http.request({
-            url: '/static/data/adopt.json',
+            url: '../../static/data/adopt.json',
             success: (dic)=> {
               this.$vux.loading.hide();
               if(dic.code==0){
@@ -220,7 +220,7 @@
         right: 10px;
         font-style: normal;
         padding: 6px 6px 10px 6px;
-        background: url('/static/imgs/tag_bg.png') no-repeat center center;
+        background: url('../../static/imgs/tag_bg.png') no-repeat center center;
         background-size: 100% 100%;
       }
     }

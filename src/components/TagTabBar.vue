@@ -97,7 +97,7 @@
 			.weui-tabbar > a:nth-child(#{$i}) .tab-icon{
 				background-image: url(../assets/icon/tabs/tab-#{$i}-off.png);
 			}
-			.weui-tabbar > a.weui-bar__item_on:nth-child(#{$i})  .tab-icon{
+			.weui-tabbar > a.weui-bar__item_on:nth-child(#{$i}) .tab-icon{
 				background-image: url(../assets/icon/tabs/tab-#{$i}-on.png);
 			}
 		}

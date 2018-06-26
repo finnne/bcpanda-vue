@@ -15,7 +15,7 @@
 		<div class="wrapper text-center clearfix">
 			<button class="btn-base full reg_btn" @click="loginClick()">登录</button>
 			<p class="tip">
-				<img src="/static/imgs/tip_icon.png">
+				<img src="../../static/imgs/tip_icon.png">
 				<span>随手借用户可直接登录区块链熊猫</span>
 			</p>
 		</div>
@@ -88,7 +88,7 @@
 			getPublicKey: function(){
 				return new Promise((resolve, reject)=>{
 					this.$http.request({
-						url: '/static/data/getPublicKey.json',
+						url: '../../static/data/getPublicKey.json',
 						success: (dic) => {  
 							if(dic.code==0){
 								resolve(dic.result);
@@ -122,7 +122,7 @@
 				    };
 				    
 				    this.$http.request({
-				    	url: '/static/data/pandaLogin.json', 
+				    	url: '../../static/data/pandaLogin.json', 
 				    	// url: this.$config.domain +'/app/security/pandaLogin', 
 				    	// method: 'POST',
 				    	data: data,
@@ -197,8 +197,8 @@
 			border-width:16px 2px 2px 2px;
 			border-style: solid;
 			border-color: transparent;
-			border-image:url(/static/imgs/tip_border.png) 32 4 4 4 round;
-			-webkit-border-image:url(/static/imgs/tip_border.png) 32 4 4 4 round;
+			border-image:url(../../static/imgs/tip_border.png) 32 4 4 4 round;
+			-webkit-border-image:url(../../static/imgs/tip_border.png) 32 4 4 4 round;
 		}
 		img{
 			height: 1.5rem;

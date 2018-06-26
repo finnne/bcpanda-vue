@@ -25,7 +25,7 @@
 					<h6>所有者:</h6>
 					<span class="user_head">
 						<img v-if="panda.headUrl" :src="panda.headUrl"/>
-						<img v-else src="/static/imgs/head_default.png"/>
+						<img v-else src="../../static/imgs/head_default.png"/>
 					</span>
 					<label class="user_name">{{panda.userName}}</label>
 				</div>
@@ -138,7 +138,7 @@
 				  this.$vux.loading.show();
 				  this.$http.request({
 				    // url: this.$config.domain + '/panda/publish',
-				    url: '/static/data/ok.json',
+				    url: '../../static/data/ok.json',
 				    data: body,
 				    success: (dic) => {
 				      this.$vux.loading.hide();
@@ -167,7 +167,7 @@
 				this.$vux.loading.show();
 				this.$http.request({
 				  // url: this.$config.domain + '/panda/cancel',
-				  url: '/static/data/ok.json',
+				  url: '../../static/data/ok.json',
 				  data: body,
 				  success: (dic) => {
 				    this.$vux.loading.hide();
@@ -421,7 +421,7 @@
 			position: absolute;
 			right: 0;
 			top:0;
-			background: url(/static/imgs/icon_close.png) no-repeat right 15px center;
+			background: url(../../static/imgs/icon_close.png) no-repeat right 15px center;
 			background-size: auto 10px;
 		}
 		.confirm_con{
@@ -445,7 +445,7 @@
 			color: #999999;
 			display: inline-block;
 			padding-left: 18px;
-			background: url(/static/imgs/icon_tip.png) no-repeat left center;
+			background: url(../../static/imgs/icon_tip.png) no-repeat left center;
 			background-size: auto 100%;
 			margin-top: 35px;
 		}
